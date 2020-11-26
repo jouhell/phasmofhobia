@@ -1,27 +1,54 @@
-const webpack = (config, options) => {
-  config.module.rules.push({
-    test: /\.(png|jpe?g|gif)$/i,
-    loader: 'file-loader',
-    options: {
-      // name: '[path][name].[ext]',
+const debug = process.env.NODE_ENV !== 'production'
 
-      name() {
-        // `resourcePath` - `/absolute/path/to/file.js`
-        // `resourceQuery` - `?foo=bar`
+module.exports = {
+  exportPathMap: function () {
+    return {
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+    }
+  },
+  //assetPrefix: '',
+  assetPrefix: !debug ? '/Next-gh-page-example/' : '',
+  webpack: (config, { dev }) => {
+    // Perform customizations to webpack config
+    // console.log('webpack');
+    // console.log(config.module.rules, dev);
+    config.module.rules = config.module.rules.map((rule) => {
+      if (rule.loader === 'babel-loader') {
+        rule.options.cacheDirectory = false
+      }
+      return rule
+    })
 
-        if (process.env.NODE_ENV === 'development') {
-          return '[path][name].[ext]'
-        }
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif)$/i,
+      loader: 'file-loader',
+      options: {
+        // name: '[path][name].[ext]',
 
-        return '[contenthash].[ext]'
+        name() {
+          // `resourcePath` - `/absolute/path/to/file.js`
+          // `resourceQuery` - `?foo=bar`
+
+          if (process.env.NODE_ENV === 'development') {
+            return '[path][name].[ext]'
+          }
+
+          return '[contenthash].[ext]'
+        },
+        publicPath: `/_next/static/images`,
+        outputPath: 'static/images',
+        limit: 1000,
       },
-      publicPath: `/_next/static/images`,
-      outputPath: 'static/images',
-      limit: 1000,
-    },
-  })
-
-  return config
+    })
+    // Important: return the modified config
+    return config
+  } /*,
+  webpackDevMiddleware: (config) => {
+    // Perform customizations to webpack dev middleware config
+    // console.log('webpackDevMiddleware');
+    // console.log(config);
+    // Important: return the modified config
+    return config
+  }, */,
 }
-
-module.exports = { webpack }
