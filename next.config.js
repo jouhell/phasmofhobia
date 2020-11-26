@@ -1,16 +1,16 @@
 const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  images: {
-    domains: ['localhost'],
-  },
-  exportPathMap: function () {
-    return {
-      '/': { page: '/' },
-    }
-  },
+  // images: {
+  //   domains: ['localhost'],
+  // },
+  // exportPathMap: function () {
+  //   return {
+  //     '/': { page: '/' },
+  //   }
+  // },
   //assetPrefix: '',
-  assetPrefix: !debug ? '/' : '',
+  // assetPrefix: !debug ? '/' : '',
   webpack: (config, { dev }) => {
     // Perform customizations to webpack config
     // console.log('webpack');
