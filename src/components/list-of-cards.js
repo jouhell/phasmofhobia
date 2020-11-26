@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Card from './card'
 import styled from 'styled-components'
 import useTestsContext from '../context'
-import data from '../../data.json'
+import data from '../../public/data.json'
 import { filter, map, sortBy, isEmpty, difference, find } from 'lodash'
 
 const Container = styled.div`

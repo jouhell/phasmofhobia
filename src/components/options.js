@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Button from './button'
 import styled from 'styled-components'
-import data from '../../data.json'
+import data from '../../public/data.json'
 import useTestsContext from '../context'
 
 const Text = styled.p`
