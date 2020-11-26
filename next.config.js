@@ -2,7 +2,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   images: {
-    domains: ['jouhell.github.io/phasmofhobia'],
+    domains: ['localhost'],
   },
   exportPathMap: function () {
     return {
@@ -10,7 +10,7 @@ module.exports = {
     }
   },
   //assetPrefix: '',
-  assetPrefix: !debug ? '/phasmofhobia/' : '',
+  assetPrefix: !debug ? '/' : '',
   webpack: (config, { dev }) => {
     // Perform customizations to webpack config
     // console.log('webpack');
