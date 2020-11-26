@@ -2,7 +2,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   images: {
-    domains: ['localhost'],
+    domains: ['jouhell.github.io/phasmofhobia'],
   },
   exportPathMap: function () {
     return {
