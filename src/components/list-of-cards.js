@@ -59,20 +59,19 @@ const ListOfCards = () => {
 
       const testsIdSorted = sortBy(testsIds)
 
-      const ghostEvidencesIds = take(evidencesIdsSorted, testsIds.length)
+      const differences = difference(evidencesIdsSorted, testsIdSorted)
 
-      const equal = isEqual(ghostEvidencesIds, testsIdSorted)
+      const isTrue = differences.length === 1
 
-      if (equal && testsIds.length == 2) {
-        const diff = difference(evidencesIdsSorted, testsIdSorted)
-
+      if (isTrue && testsIds.length === 2) {
         result.push({
           ...ghost,
-          difference: find(evidences, (item) => item.id === diff[0]).label,
+          difference: find(evidences, (item) => item.id === differences[0])
+            .label,
         })
       }
 
-      return equal
+      return isTrue
     })
 
     setState(isEmpty(result) ? resultFiltered : result)
