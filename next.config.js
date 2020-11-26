@@ -1,6 +1,9 @@
 const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
+  images: {
+    domains: ['localhost'],
+  },
   exportPathMap: function () {
     return {
       '/': { page: '/' },
