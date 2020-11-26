@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ListOfOptions from '../src/components/list-of-options'
 import ListOfCards from '../src/components/list-of-cards'
+import Bg from '../public/background.png'
 
 const Inner = styled.div`
   align-items: center;
@@ -15,13 +16,12 @@ const Inner = styled.div`
 
 const Container = styled.div`
   background-attachment: fixed;
-  background-image: url(${require('../public/background.png').default});
+  background-image: url(${Bg});
   background-position: center top;
   background-size: cover;
   display: flex;
   min-height: 100vh;
   overflow: hidden;
-  /* padding-top: 64px; */
 `
 
 const Home = () => {

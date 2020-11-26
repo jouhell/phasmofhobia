@@ -35,7 +35,9 @@ module.exports = {
 
           return '[contenthash].[ext]'
         },
-        publicPath: `/phasmofhobia/_next/static/images`,
+        publicPath: !debug
+          ? `/phasmofhobia/_next/static/images`
+          : `/_next/static/images`,
         outputPath: 'static/images',
         limit: 1000,
       },

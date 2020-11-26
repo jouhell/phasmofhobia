@@ -18,7 +18,12 @@ const Container = styled.div`
   display: flex;
   overflow: auto;
   padding: 16px;
-  margin-top: 42px;
+  margin-top: 64px;
+
+  @media (max-width: 663px) {
+    margin-top: 24px;
+    margin-bottom: 64px;
+  }
 
   > * {
     margin-right: 24px;
