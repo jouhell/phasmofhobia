@@ -19,29 +19,29 @@ module.exports = {
       return rule
     })
 
-    config.module.rules.push({
-      test: /\.(png|jpe?g|gif)$/i,
-      loader: 'file-loader',
-      options: {
-        // name: '[path][name].[ext]',
+    // config.module.rules.push({
+    //   test: /\.(png|jpe?g|gif)$/i,
+    //   loader: 'file-loader',
+    //   options: {
+    //     // name: '[path][name].[ext]',
 
-        name() {
-          // `resourcePath` - `/absolute/path/to/file.js`
-          // `resourceQuery` - `?foo=bar`
+    //     name() {
+    //       // `resourcePath` - `/absolute/path/to/file.js`
+    //       // `resourceQuery` - `?foo=bar`
 
-          if (process.env.NODE_ENV === 'development') {
-            return '[path][name].[ext]'
-          }
+    //       if (process.env.NODE_ENV === 'development') {
+    //         return '[path][name].[ext]'
+    //       }
 
-          return '[contenthash].[ext]'
-        },
-        publicPath: !debug
-          ? `/phasmofhobia/_next/static/images`
-          : `/_next/static/images`,
-        outputPath: 'static/images',
-        limit: 8192,
-      },
-    })
+    //       return '[contenthash].[ext]'
+    //     },
+    //     publicPath: !debug
+    //       ? `/phasmofhobia/_next/static/images`
+    //       : `/_next/static/images`,
+    //     outputPath: 'static/images',
+    //     limit: 8192,
+    //   },
+    // })
     // Important: return the modified config
     return config
   } /*,
