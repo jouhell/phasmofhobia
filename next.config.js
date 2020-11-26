@@ -39,7 +39,7 @@ module.exports = {
           ? `/phasmofhobia/_next/static/images`
           : `/_next/static/images`,
         outputPath: 'static/images',
-        limit: 1000,
+        limit: 8192,
       },
     })
     // Important: return the modified config

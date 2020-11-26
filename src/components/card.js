@@ -1,17 +1,10 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import Img from '../../public/gosht.jpg'
+import Image from 'next/image'
 
 const fadeIn = keyframes`
   0% {opacity:0;}
   100% {opacity:1;}
-`
-
-const Image = styled.div`
-  background-image: url(${Img});
-  background-position: center top;
-  background-size: cover;
-  height: 208px;
 `
 
 const SubTitle = styled.h2`
@@ -50,7 +43,13 @@ const Card = (props) => {
   return (
     <Container>
       <Title>{difference}</Title>
-      <Image src={Img} />
+      <Image
+        src="/gosht.jpg"
+        alt="gosht"
+        height={208}
+        width={300}
+        quality={75}
+      />
       <Title>{name}</Title>
       <SubTitle>Fortalezas</SubTitle>
       <p>{strengths}</p>

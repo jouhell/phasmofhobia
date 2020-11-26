@@ -3,27 +3,13 @@ import Card from './card'
 import styled from 'styled-components'
 import useTestsContext from '../context'
 import data from '../../data.json'
-import {
-  filter,
-  isEqual,
-  map,
-  sortBy,
-  isEmpty,
-  take,
-  difference,
-  find,
-} from 'lodash'
+import { filter, map, sortBy, isEmpty, difference, find } from 'lodash'
 
 const Container = styled.div`
   display: flex;
   overflow: auto;
   padding: 16px;
-  margin-top: 64px;
-
-  @media (max-width: 663px) {
-    margin-top: 24px;
-    margin-bottom: 64px;
-  }
+  height: fit-content;
 
   > * {
     margin-right: 24px;

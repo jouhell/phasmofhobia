@@ -5,7 +5,7 @@ import { map } from 'lodash'
 
 const Container = styled.div`
   justify-self: center;
-  margin-top: 120px;
+  height: fit-content;
 
   > * {
     margin-bottom: 24px;
