@@ -17,7 +17,7 @@ const Container = styled.div`
 `
 
 const ListOfOptions = (props) => {
-  const renderOptions = map([0, 1, 2], (_, index) => (
+  const renderOptions = map([0, 1], (_, index) => (
     <Options key={index} number={index} />
   ))
 
